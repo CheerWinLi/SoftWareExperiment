@@ -29,6 +29,7 @@ public class Solution {
         //默认的 输出文件 D:\IDEA\GitHubProject\SoftWareExperiment\3122004440\src\main\resources\result.txt
         String outputFilePath = args[2];
         try {
+            //读出文件信息
             String originalContent = new String(Files.readAllBytes(Paths.get(originalFilePath)));
             String plagiarizedContent = new String(Files.readAllBytes(Paths.get(plagiarizedFilePath)));
 
@@ -48,6 +49,11 @@ public class Solution {
         }
     }
 
+    /**
+     * 计算文本的 SimHash
+     * @param text 文本内容
+     * @return 文本的 SimHash 值
+     */
     private static long computeSimHash(String text) {
         // SimHash 的维度
         int[] v = new int[128];
